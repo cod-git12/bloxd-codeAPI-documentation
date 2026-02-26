@@ -1,172 +1,42 @@
 # bloxd-codeAPI-documentation
-BloxdのcodeAPIドキュメントをよりわかりやすく、日本語・英語両方に対応したドキュメントです
-ここには各ファイルの読み方を載せています
+BloxdのcodeAPIドキュメントをよりわかりやすく整理し、日本語・英語両方に対応したドキュメントです
 
-# Block Names (1006 blocks)
-
-以下に記載されている各ブロック名は **ROOTブロック** です。  
-（接尾辞を付けず、そのまま正確に使用してください。）
-
-一部のブロックには、角括弧 `[ ]` 内にコードが記載されており、  
-それらは **メタバリアント（派生バージョン）** を持つことを示します。
-
----
-
-## ■ ROOT BLOCK
-
-一覧に記載されているブロック名を**そのまま正確に使用**してください。  
-（例：「Maple Door」「Wheat」「Stone」など）
-
----
-
-## ■ META VARIANTS
-
-ブロック名の横にコードが `[ ]` で示されている場合、  
-以下のルールに従って接尾辞を追加することでバリアントを作成できます。
-
----
-
-### R = 回転（rotation）
+# ファイル構成
+※作成中です
 ```
-BlockName|meta|rot1 ～ |meta|rot4
+📁Bloxd-codeAPI-documetation
+├── README.md
+├── BLOCK_NAMES.txt
+└── ITEM_NAMES.txt
 ```
 
----
+# 各ファイルの説明・補足
+各ファイルの説明が足りない部分などを補足
 
-### O = 開閉（open / closed）
-※ R と組み合わせて使用
-```
-BlockName|meta|rot1|open
-BlockName|meta|rot1|closed
-```
+## BLOCK_NAMES.txt
+**Block Names (1006 blocks)**
 
----
+[BLOCK_NAMES.txt](BLOCK_NAMES.txt)にリストされている各ブロック名はルートブロックです。表示されている通り（接尾辞なしで）正確に使用してください。  
+一部のブロックにはメタバリアントもあり、角括弧内のコードで示されています。  
 
-### H = ハーフブロック設置位置（halfblockPlacement）
-※ R と組み合わせて使用
-```
-BlockName|meta|rot1|top
-BlockName|meta|rot1|bot
-BlockName|meta|rot1|side
-```
+メタバリアント: ブロックに角括弧内のコードがある場合、サフィックスを追加してバリアントを取得できます。  
+各メタバリアントの一覧:  
+  R = 回転 -> `ブロック名|meta|rot1` 〜 `|meta|rot4` （ブロックの回転の向き）  
+  O = 開閉 -> `ブロック名|meta|rot1|open` か `|closed` （ブロックの開閉状態。Rと組み合わせて使用）  
+  H = ハーフブロックの配置 -> `ブロック名|meta|rot1|top` か `|bot` か `|side` （ブロックの配置向き。Rと組み合わせて使用）  
+  G = 成長 -> `ブロック名|Growing`  
+  TB = 木の根元 -> `ブロック名|TreeBase|<木のタイプ>` （壊すと苗木が出てくるブロック。例： `Maple Log|TreeBase|Maple` ）  
+  TC = 木の樹冠 -> `ブロック名|TreeCanopy`  
+  B = 本の量 -> `ブロック名|meta|rot1|books1` から `|books6` （入れられている本の量。Rと組み合わせて使用）  
+  FG = 収穫可能 -> `ブロック名|FreshlyGrown` （収穫可能な状態の作物）  
+  RT = ルート -> `ブロック名|Roots` （ワールド生成用の根を持つ花）  
+  LV = 溶岩 -> `ブロック名|Lava` （溶岩成長型）  
+  TP = 頂部 -> `ブロック名|Top` （背の高い植物の上半分）  
+  GR = 草根 -> `ブロック名|GrassRoots` （草根のある土）  
+  BK = 破壊中 -> `ブロック名|Breaking` （破壊アニメーション状態）  
+  FL = フラッシュ -> `ブロック名|Flashing` （点滅アニメーション状態）  
 
----
-
-### G = 成長中（growing）
-```
-BlockName|Growing
-```
-
----
-
-### TB = 木の根元（treeBase）
-```
-BlockName|TreeBase|<WoodType>
-```
-例：
-```
-Maple Log|TreeBase|Maple
-```
-
----
-
-### TC = 木の葉（treeCanopy）
-```
-BlockName|TreeCanopy
-```
-
----
-
-### B = 本付き（books）
-※ R と組み合わせて使用
-```
-BlockName|meta|rot1|books1 ～ |books6
-```
-
----
-
-### FG = 収穫可能状態（freshlyGrown）
-```
-BlockName|FreshlyGrown
-```
-（作物の収穫可能状態）
-
----
-
-### RT = 根付き（roots）
-```
-BlockName|Roots
-```
-（ワールド生成用の根付き花）
-
----
-
-### LV = 溶岩状態（lava）
-```
-BlockName|Lava
-```
-（溶岩成長バリアント）
-
----
-
-### TP = 上部（top）
-```
-BlockName|Top
-```
-（背の高い植物の上半分）
-
----
-
-### GR = 草の根付き土（grassRoots）
-```
-BlockName|GrassRoots
-```
-（草の根が付いた土）
-
----
-
-### BK = 破壊中（breaking）
-```
-BlockName|Breaking
-```
-（破壊アニメーション状態）
-
----
-
-### FL = 点滅（flashing）
-```
-BlockName|Flashing
-```
-（点滅アニメーション状態）
-
----
-
-## ■ 使用例
-
-Stone  
-→ 「Stone」をそのまま使用  
-（角括弧がない＝バリアントなし、ROOTブロックのみ）
-
----
-
-Maple Door [O,R]  
-ROOT：
-```
-Maple Door
-```
-バリアント例：
-```
-Maple Door|meta|rot2|open
-```
-
----
-
-Wheat [FG]  
-ROOT：
-```
-Wheat
-```
-バリアント：
-```
-Wheat|FreshlyGrown
-```
+メタバリアントの適用例:  
+  Stone -> 普通に「Stone」を使用する（括弧なし = バリエーションなし、ルートブロックのみ）  
+  Maple Door [O,R] -> ルート: 「Maple Door」, バリエーション: 「Maple Door|meta|rot2|open」, など  
+  Whet [FG] -> ルート: 「Wheat」, バリエーション: 「Wheat|FreshlyGrown」  
